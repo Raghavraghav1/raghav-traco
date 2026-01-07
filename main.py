@@ -121,6 +121,7 @@ def update_product(id: int, product: Product, db: Session = Depends(get_db)):
     """
     db_product = db.query(database_models.Product).filter(database_models.Product.id == id).first()
     if not db_product:
+        print("find me")
         raise HTTPException(status_code=404, detail="Product not found")
 
     # Update fields
